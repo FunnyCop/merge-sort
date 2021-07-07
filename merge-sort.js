@@ -14,15 +14,6 @@ class MergeSort {
         return arr
     }
 
-    sort = arr => {
-        const newArr = [...arr]
-
-        if (newArr.length <= 1) return newArr
-
-        const left = newArr.splice(0, newArr.length / 2)
-        return this.merge(this.sort(left), this.sort(newArr))
-    }
-
     merge = (left, right) => {
         let newArr = []
 
@@ -31,6 +22,15 @@ class MergeSort {
             : null
 
         return [...newArr, ...left, ...right]
+    }
+    
+    sort = arr => {
+        const newArr = [...arr]
+
+        if (newArr.length <= 1) return newArr
+
+        const left = newArr.splice(0, newArr.length / 2)
+        return this.merge(this.sort(left), this.sort(newArr))
     }
 }
 
